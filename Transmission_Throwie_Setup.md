@@ -3,7 +3,7 @@
 
 # Setup guide: Creating and seeding a torrent on a VPS
 
-Create a new virtual private server. I'm using Ubuntu 16.04 on DigitalOcean, with Docker 17.05.0-ce pre-installed.
+Create a new virtual private server. I'm using Ubuntu 16.04 on DigitalOcean, with Docker 17.12.0-ce pre-installed.
 
 > <img src="img/DigitalOcean.png" width="800" />
 
@@ -14,12 +14,12 @@ Create a new virtual private server. I'm using Ubuntu 16.04 on DigitalOcean, wit
 ssh root@your.ip.address.here
 ```
 
-Open ports `9091` and `51413` in your firewall and make sure `unzip` is installed.
+Open ports `9091` and `51413` in your firewall and make sure `zip` and `unzip` are installed.
 
 ```
 ufw allow 9091
 ufw allow 51413
-apt-get -y install unzip
+apt-get -y install zip unzip
 ```
 
 Next, download the Docker container we'll be using: my fork of [dperson's container](https://github.com/dperson/transmission) for the open-source BitTorrent client [Transmission](https://transmissionbt.com). I fixed a few bugs and added Transmission's command-line tool for creating new torrents.
@@ -79,10 +79,10 @@ Now `cd` to the `Downloads` directory.
 cd /var/lib/transmission-daemon/Downloads
 ```
 
-The following command creates a torrent file for `DataRefuge_001_test/`, which is saved to `transmission-daemon/info/torrents/DataRefuge_001_test.torrent`.
+The following command creates a torrent file for `DataRefuge_001_test/`, which is saved to `transmission-daemon/info/torrents/Ubu_001_test.torrent`.
 
 ```
-transmission-create -n DataRefuge_001_test/ \
+transmission-create -n Ubu_001_test/ \
 --tracker udp://tracker.opentrackr.org:1337 \
 --tracker http://tracker2.wasabii.com.tw:6969/announce \
 -o ../info/torrents/DataRefuge_001_test.torrent
@@ -103,7 +103,7 @@ In your browser, navigate to `your.ip.address.here:9091`. The default username a
 
 Once Transmission finishes verifying your data, it will seed the files for anyone who opens the torrent file we just created at `/home/transmission-daemon/info/torrents/DataRefuge_001_test.torrent`. Download that file using an FTP client and share it with others.
 
-You can find an active copy of the torrent file we just created [here](https://github.com/stevemclaugh/preservation-torrent/blob/master/DataRefuge_001_test.torrent?raw=true). Open it with [uTorrent](http://www.utorrent.com/), [Transmission](https://transmissionbt.com/), or your BitTorrent client of choice to start downloading (8.2 GB).
+You can find an active copy of the torrent file we just created [here](https://github.com/stevemclaugh/preservation-torrent/blob/master/Ubu_001_test.torrent?raw=true). Open it with [uTorrent](http://www.utorrent.com/), [Transmission](https://transmissionbt.com/), or your BitTorrent client of choice to start downloading (8.2 GB).
 
 
 &nbsp;
