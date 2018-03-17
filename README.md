@@ -26,9 +26,9 @@ Launching Jupyter using Docker:
 ```
 ufw allow 8889
 
-docker rm -f scrape_kit
-docker pull stevemclaugh/scrape-kit
-docker run --name scrape_kit -ti -p 8889:8889 --volume /home/sharedfolder/:/sharedfolder/ stevemclaugh/scrape-kit
+docker rm -f scrape_tools
+docker pull stevemclaugh/scrape-tools
+docker run --name scrape_tools -ti -p 8889:8889 --volume /sharedfolder/:/sharedfolder/ stevemclaugh/scrape-tools
 
 ```
 
@@ -56,8 +56,6 @@ jupyter notebook --ip 0.0.0.0 --port 8889 --no-browser --allow-root --NotebookAp
 ## Running Transmission on a Throwie Server
 
 ## Scraping Ubu
-
-
 
 ## Creating New Torrents with transmission-cli
 
