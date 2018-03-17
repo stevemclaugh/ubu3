@@ -43,7 +43,7 @@ cd /home/transmission-daemon/Downloads
 Download and unzip our data bundle.
 
 ```
-wget http://www.stephenmclaughlin.net/Ubu/Ubu_001_test.zip
+wget http://www.stephenmclaughlin.net/Ubu/Ubu-test-001.zip
 
 unzip Ubu_001_test.zip
 ```
