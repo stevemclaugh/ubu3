@@ -5,7 +5,7 @@
 
 ### Each torrent should contain a bundle of datasets, totaling 10–20 gigabytes per torrent.
 
-- Very few participants will bother to seed hundreds of separate 25MB–100MB torrents. Many have storage and bandwidth to spare, but screen space is limited and managing long lists of files is tedious.
+- Very few participants will bother to seed hundreds of small, separate torrents. Many have storage and bandwidth to spare, but screen space is limited and managing long lists of files is tedious.
 
 - Issuing bundles (rather than creating one torrent per dataset) decreases the odds that less in-demand items will slip through the cracks and no longer be seeded.
 
@@ -56,39 +56,27 @@
 ```
 
 
-### A very large dataset can be issued on its own as a numbered torrent in the series.
-
-```
-📂 Ubu_019/
-    📄 _checksums.md5
-    📄 collection_of_pdfs.zip
-    📄 video_file.mp4
-    📄 README.txt
-```
-
 
 ### The fewer files in a torrent, the better.
-
-- Each dataset should be distributed as one ZIP file (or comparable archive format) and a corresponding JSON metadata file.
 
 - Each torrent should contain no more than 400–500 individual files. If a single torrent points to too many files, participants' clients may lag or crash.
 
 
-### Datasets need not be bundled thematically.
+### Items need not be bundled thematically.
 
 - Because you can't add files to an existing torrent, thematically organized collections become unmanageable over time. Instead, assign datasets to torrent bundles in roughly chronological order.
 
 
-### Metadata for all datasets, along with checksums, torrent files, and magnet links, should be available from a trusted organization.
+### Metadata for all datasets, along with checksums, torrent files, and magnet links, should be available from a trusted source.
 
 - It should be possible to download all metadata in a single package, whether through an API or from a periodically updated static file.
 
 
 ### It isn't necessary to include extensive metadata in each torrent.
 
-- Remember that filenames are visible to the public via torrent trackers and the distributed hash table. Using UUIDs instead of human-readable filenames is a light form of obfuscation.
+- Using UUIDs instead of human-readable filenames is a light form of obfuscation.
 
-- The complete metadata collection will be a fairly small document, so it may be less of a preservation risk than the datasets.
+- The complete metadata collection will be a fairly small document, so it may be less of a preservation risk than the 
 
 
 ### If a dataset must be retracted/updated, the trusted organization can post a replacement torrent.
@@ -110,7 +98,7 @@
 
 &nbsp;
 
-#### [*>> Setup guide: Creating and seeding a torrent on a VPS*](Setup.md)
+#### [*>> Setup guide: Creating and seeding a torrent on a VPS*](Running_Transmission_on_a_VPS.md)
 
 &nbsp;
 

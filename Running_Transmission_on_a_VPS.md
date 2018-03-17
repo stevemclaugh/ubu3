@@ -45,26 +45,24 @@ Download and unzip our data bundle.
 ```
 wget http://www.stephenmclaughlin.net/Ubu/Ubu-test-001.zip
 
-unzip Ubu_001_test.zip
+unzip Ubu-test-001.zip
+```
+
+Next we will create a list of checksums for each file in the set.
+
+```
+find Ubu-test-001/* -type f -exec md5sum {} \;  > Ubu-test-001/_checksums.md5
+
+zip -r Ubu-test-001.zip Ubu-test-001/
+```
+
+In the future, you can use the this checksum file to verify that everything has arrived intact. This may take a few minutes.
+
+```
+md5sum -c Ubu-test-001/_checksums.md5
 ```
 
 
-<!--
-To create the checksum and zip files we're using:
-
-```
-find DataRefuge_001_test/* -type f -exec md5sum {} \;  > DataRefuge_001_test/_checksums.md5
-
-zip -r DataRefuge_001_test.zip DataRefuge_001_test/
-```
--->
-
-
-Next, use the included checksum file to verify that everything has arrived intact. This may take a few minutes.
-
-```
-md5sum -c Ubu_001_test/_checksums.md5
-```
 
 If every file passes the check, we're ready to create our torrent. Enter the following command to launch a shell session in the running Docker container.
 
@@ -79,13 +77,13 @@ Now `cd` to the `Downloads` directory.
 cd /var/lib/transmission-daemon/Downloads
 ```
 
-The following command creates a torrent file for `DataRefuge_001_test/`, which is saved to `transmission-daemon/info/torrents/Ubu_001_test.torrent`.
+The following command creates a torrent file for the directory `Ubu-test-001/`, which is saved to `transmission-daemon/info/torrents/Ubu-test-001.torrent`.
 
 ```
-transmission-create -n Ubu_001_test/ \
+transmission-create -n Ubu-test-001/ \
 --tracker udp://tracker.opentrackr.org:1337 \
 --tracker http://tracker2.wasabii.com.tw:6969/announce \
--o ../info/torrents/DataRefuge_001_test.torrent
+-o ../info/torrents/Ubu-test-001.torrent
 ```
 
 Now we'll return to Ubuntu. To close your session in the Docker container, press `ctrl+p`, then `ctrl+q`.
@@ -101,9 +99,8 @@ In your browser, navigate to `your.ip.address.here:9091`. The default username a
 
 > <img src="img/Transmission.png" width="800" />
 
-Once Transmission finishes verifying your data, it will seed the files for anyone who opens the torrent file we just created at `/home/transmission-daemon/info/torrents/DataRefuge_001_test.torrent`. Download that file using an FTP client and share it with others.
+Once Transmission finishes verifying your data, it will seed the files for anyone who opens the torrent file we just created at `/home/transmission-daemon/info/torrents/DataRefuge_001_test.torrent`. Download that file using an FTP client and distribute widely.
 
-You can find an active copy of the torrent file we just created [here](https://github.com/stevemclaugh/preservation-torrent/blob/master/Ubu_001_test.torrent?raw=true). Open it with [uTorrent](http://www.utorrent.com/), [Transmission](https://transmissionbt.com/), or your BitTorrent client of choice to start downloading (8.2 GB).
 
 
 &nbsp;
