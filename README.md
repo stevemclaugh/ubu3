@@ -5,6 +5,7 @@
 
 - A BitTorrent client
     - Transmission: [https://transmissionbt.com/](https://transmissionbt.com)
+    - Deluge: [https://deluge-torrent.org/](https://deluge-torrent.org/)
     - μTorrent: [https://www.utorrent.com/](https://www.utorrent.com/)
 - A text editor
     - Atom: [https://atom.io/](https://atom.io)
@@ -33,7 +34,7 @@ docker run --name scrape_tools -ti -p 8889:8889 --volume /sharedfolder/:/sharedf
 ```
 
 
-or, to run Jupyter without Docker:
+Or, to run Jupyter without Docker:
 
 
 ```
@@ -52,7 +53,7 @@ ufw allow 8889
 jupyter notebook --ip 0.0.0.0 --port 8889 --no-browser --allow-root --NotebookApp.iopub_data_rate_limit=1.0e10
 ```
 
-
+<!--
 ## Running Transmission on a Throwie Server
 
 ## Scraping Ubu
@@ -62,3 +63,4 @@ jupyter notebook --ip 0.0.0.0 --port 8889 --no-browser --allow-root --NotebookAp
 ## Cleaning Our Metadata
 
 
+-->
